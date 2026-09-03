@@ -1,4 +1,5 @@
-//Faca um fluxograma que receba o valor digitado pelo usuario (valor em R$) em cada um dos dias da semana trabalhado (segunda a sexta). Ao final, mostre a soma do valor ganho.
+//Faca um fluxograma que receba o valor digitado pelo usuario (valor em R$) em cada um dos dias da semana trabalhado (segunda a sexta). 
+//Ao final, mostre a soma do valor ganho.
 
 programa
 {
