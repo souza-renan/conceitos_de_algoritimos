@@ -1,39 +1,117 @@
-//3. Faça uma função que receba como parâmetro o numero de vezes que o usuário deseja rolar um dado.
-//A função deve fazer a rolagem do dado e retornar a quantidade de vezes que o dado gerou o valor 6.
+programa
+{	
+	inclua biblioteca Util --> u 
 
-programa{
-	inclua biblioteca Util --> u
-	funcao inteiro rolagemDado(inteiro vd, inteiro vs, inteiro vetor[]){
-		inteiro sorteio = 0
-		para(inteiro i = 0; i < vd; i++){
-			sorteio = u.sorteia(0, 5)
+	funcao pontuacaoTotal(inteiro matrizpt[][], inteiro vetorpt[]){
+		inteiro somajogadores
+		cadeia pausa
+		
+		para(inteiro k = 0; k < 5; k++){
+			somajogadores = 0
+		
+			para(inteiro l = 0; l < 3;l++){
 
-			vetor[sorteio]++
+				somajogadores = matrizpt[k][l] + somajogadores
+				vetorpt[k] = somajogadores
+				
+			}
+		
+		}
+	}
+
+	funcao maiorPontuacao(inteiro matrizmp [][], inteiro vetormp[]){
+		inteiro maiorpont = 0, jogadormaiorpont = 0
+		para (inteiro i = 0; i < 5; i++){
+			
+			se(vetormp[i] > maiorpont){
+				maiorpont = vetormp[i]
+				jogadormaiorpont = i
+			}
 		}
 
-		retorne vetor[5]
+		escreva("\n\n====Maior Pontuação====\n\nVencedor: Jogador ", jogadormaiorpont+1)
+		escreva("\nPontuação:", maiorpont," pontos")
 	}
+
+	funcao menorPontuacao(inteiro matrizmp [][], inteiro vetormp[]){
+		inteiro menorpont = 0, jogadormenorpont = 0
+		para (inteiro i = 0; i < 5; i++){
+			
+			se(menorpont == 0){
+				menorpont = vetormp[i]
+				jogadormenorpont = i
+			}senao{se(vetormp[i] < menorpont){
+				menorpont = vetormp[i]
+				jogadormenorpont = i
+			}
+			
+			}
+		}
+		escreva("\n\n====Menor Pontuação====\n\nMenor pontuação: Jogador ", jogadormenorpont+1)
+		escreva("\nPontuação:", menorpont," pontos")
+		
+	}
+
+
+	funcao mediaPontuacao(inteiro vetorme[]){
+		inteiro mediapont = 0, jogadormenorpont = 0
+		escreva("\n\n====Media Pontuação====\n\n")
+		
+		para (inteiro i = 0; i < 5; i++){
+		mediapont	= 0
+
+		mediapont = vetorme[i]/3
+		
+		escreva("Jogador ", i+1,": ", mediapont,"\n")
+		}
+	}	
 	
-	funcao inicio(){
-		inteiro vezesDado, vezesSeis = 0, vs = 0, vetor[6]
-		
-		escreva("Quantas vezes voce deseja rolar o dado? ")
-		leia(vezesDado)
+	funcao inicio()
+	{
+		inteiro matriz[5][3], vetor[5]
 
-		vezesSeis = rolagemDado(vezesDado, vezesSeis, vetor)
+			para(inteiro i = 0; i < 5; i++){
+				para(inteiro j = 0; j < 3; j++){
+					matriz[i][j] = u.sorteia(0, 100)
 
-		escreva("O valor 6 apareceu: ", vezesSeis, " vezes")
+				}
+			}
+			
+		pontuacaoTotal(matriz, vetor)
+		escreva("		Rodada 1 | Rodada 2 | Rodada 3 | Total")
 		
+			para(inteiro i = 0; i < 5; i++){
+				escreva("\n")
+				escreva("Jogador ", i+1,"	  ")
+				
+				para(inteiro j = 0; j < 3; j++){
+					
+				se(j == 2){
+					se(matriz[i][j] < 10){
+					escreva(matriz[i][j],"          ",vetor[i])
+					}senao(escreva(matriz[i][j],"         ",vetor[i]))
+						
+					}senao{se(matriz[i][j] < 10){
+						escreva(matriz[i][j],"          ")
+					}senao(escreva(matriz[i][j],"         "))
+					}
+				}			
+		
+			}
+		maiorPontuacao(matriz, vetor)
+		menorPontuacao(matriz, vetor)
+		mediaPontuacao(vetor)
 	}
+
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 723; 
+ * @POSICAO-CURSOR = 1449; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetor, 6, 60, 5}-{vetor, 18, 44, 5};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
