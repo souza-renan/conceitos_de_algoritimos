@@ -2,8 +2,7 @@
 programa
 {
 
-
-	funcao inicio()
+	funcao inicio()
 	{
 		escreva("Digite o valor do produto e o seu desconto para descobrirmos o valor final da compra\nDigite o valor do produto: ")
 		real valorprod
